@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdnjs.cloudflare.com https://checkout.razorpay.com;">
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+                <div class="container">
+                     <form id ="formField"method="post">
+                         <header>
+                             <h4 class="expenseHead">ADD EXPENSES</h4>
+                         </header>
+                        <div class="form-group">
+                            <label for="amount">Spend Amount:</label>
+                            <input type="number" class="form-control myinput" id="amount" placeholder="Enter expense amount"required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <input type="text" class="form-control myinput" id="description" placeholder="type description here"required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category:</label>
+                            <select id="category" name="category"class="form-control">
+                                <option value="null">Choose</option>
+                                <option value="food">Food</option>
+                                <option value="petrol">Petrol</option>
+                                <option value="salary">Salary</option>
+                                <option value="other">Other</option>
+                              </select>
+                        </div>
+                        <div class="expenseClass">
+                            <button type="submit" class="buttonaddexpense">Add Expense</button>
+                        </div> 
+                    </form>
+                </div>
+                
+                <button id="rzp-button">Buy Premium</button>
+                <div id ="puser">
+                    <h5>PREMIUM USER <button id="leaderboardbtn">show Leader Board</button></h5>
+                    <button id="downloadBtn">Downlaodfile</button>
+                </div>
+                <!-- <h4 class ="puser">Premium User</h4> -->
+                    <div class="getdetails">
+                        <h4>Added Expenses: <span style="font-size: small;float:right;"><span>Rows per page:</span> <select id="rowsperpage" name="rowsperpage"onchange="handlerowsperpage(this)">
+                            <option value="">select</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=5>5</option>
+                            <option value=10>10</option>
+                        </select></span> </h4>
+                        <ul class="list">
+                            <!-- <li>this is amount and decription and category</li> -->
+                        </ul>
+                        <div id = "pages">
+                        <div id = "pagination">
+                           
+                        </div>
+                    </div>
+                    </div>
+                    <div id="leaderboarddiv">
+                        <div style="width: 50%;">
+                            <h4 id="leaderboardhead">LEADER BOARD</h4>  
+                        </div>
+                        <ul class="leaderboardlist">
+
+                        </ul>
+
+                    </div>
+
+              
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="expense.js"></script>
+<style>
+    .expenseHead{
+        text-align:center;
+        padding-bottom:1rem;
+        padding-top:1rem;
+        color:rgba(34, 214, 43, 0.712);
+    }
+.container{
+    width:65%;
+}
+.expenseClass{
+    text-align:center;  
+}
+.buttonaddexpense{
+    background-color:rgba(12, 179, 21, 0.808);
+    border-radius:10px;
+    color:white;
+    border-color: rgba(12, 179, 21, 0.808);
+}
+.myinput {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+label {
+    margin:0;
+}
+.getdetails {
+    margin:1rem 1rem;
+}
+.deletebutton{
+    margin-left:5px;
+    background-color:rgba(240, 10, 10, 0.808);
+    border-radius:10px;
+    color:white;
+    border-color: rgba(240, 10, 10, 0.808);
+}
+#rzp-button{
+    background-color:rgba(240, 10, 10, 0.808);
+    border-radius:10px;
+    color:white;
+    border-color: rgba(240, 10, 10, 0.808);
+}
+#puser{
+    margin-top:1rem;
+    display:none;
+    color: rgba(240, 10, 10, 0.808);
+}
+#leaderboardbtn,#leaderboardhead{
+    background-color:rgba(63, 38, 175, 0.808);
+    border-radius:10px;
+    color:white;
+    border-color: rgba(63, 38, 175, 0.808);
+    text-align:center;
+}
+#leaderboarddiv{
+    margin-top:1rem;
+    display:none;
+}
+#pagination{
+    text-align: center;
+}
+</style>
+</html>
