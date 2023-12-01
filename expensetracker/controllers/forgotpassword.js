@@ -6,7 +6,10 @@ const Sib = require('sib-api-v3-sdk');
 const Forgotpassword = require('../models/forgotpassword.js');
 require('dotenv').config();
 
-
+exports.setheaders = async(req,res,next) => {
+  res.setHeader('Content-Security-Policy', "script-src 'self' https://cdnjs.cloudflare.com https://checkout.razorpay.com;"); 
+  next();
+}
 
 
 
