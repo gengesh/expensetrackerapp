@@ -68,7 +68,7 @@ require('dotenv').config();
             isactive:true,
           })
         }
-        const absolutePath = path.join(__dirname, '/views/resetpassword/resetpassword.htm');
+        const absolutePath = path.join(__dirname, '../views/resetpassword/resetpassword.htm');
         res.sendFile(absolutePath);
         // res.json({forgotrequest});
       }catch(err){
