@@ -18,7 +18,7 @@ const obj = {
     email:email,
     password:password
 }
-axios.post(`http://localhost:4000/signup`,obj)
+axios.post(`http://65.0.39.128:4000/signup`,obj)
 .then(res =>{
         response.style = "display:flex";
         response.style = "color:red";

@@ -8,7 +8,7 @@ function forgotPassword(e){
     e.preventDefault();
     const emailId = e.target.email.value;
     console.log("emailid is :",emailId)
-    axios.post(`http://localhost:4000/password/forgotpassword`,{emailId})
+    axios.post(`http://65.0.39.128:4000/password/forgotpassword`,{emailId})
     .then(res => {
         console.log("successs response:",res);
     })

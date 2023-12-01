@@ -24,7 +24,7 @@ const obj = {
 }
      const loginStatus = document.getElementById('loginStatus');   
     //  axios.post('http://65.1.100.107:4000/login', obj)
-     axios.post(`http://localhost:4000/login`, obj)
+     axios.post(`http://65.0.39.128:4000/login`, obj)
      .then(response1 => {
         console.log("response1",response1);
        if (response1.status === 200) {

@@ -22,7 +22,7 @@ function handleRowsPerPageClick(ele){
 function downloadFile(e) {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    axios.get(`http://localhost:4000/expense/downloadfile`,{headers:{"Authorization":token}})
+    axios.get(`http://65.0.39.128:4000/expense/downloadfile`,{headers:{"Authorization":token}})
     .then(response => {
         console.log(response);
         if(response.status === 200){
@@ -94,7 +94,7 @@ function getExpenses(page){
     const rowsperpage1 = localStorage.getItem('rowsPerPage');
     const rowsperpage = Number(rowsperpage1);
     console.log("rowsperpage get expenses",rowsperpage);
-    axios.get(`http://localhost:4000/expense?page=${page}&rowsperpage=${rowsperpage}`,{headers:{"Authorization":token}})
+    axios.get(`http://65.0.39.128:4000/expense?page=${page}&rowsperpage=${rowsperpage}`,{headers:{"Authorization":token}})
     .then((res) => {
 
       
@@ -112,7 +112,7 @@ function allExpenses(){
     const rowsperpage1 = localStorage.getItem('rowsPerPage');
     const rowsperpage = Number(rowsperpage1) || 2;
     console.log("rowsperpage",rowsperpage);
-    axios.get(`http://localhost:4000/expense?page=${page}&rowsperpage=${rowsperpage}`,{headers:{"Authorization":token}})
+    axios.get(`http://65.0.39.128:4000/expense?page=${page}&rowsperpage=${rowsperpage}`,{headers:{"Authorization":token}})
     .then((response) => {
         console.log(response.data.expenses);
         console.log(response.data.ispremiumuser);
@@ -138,7 +138,7 @@ function addExpense(e){
         description:description,
         category:category,
     }
-    axios.post(`http://localhost:4000/expense`,obj,{headers:{"Authorization":token}})
+    axios.post(`http://65.0.39.128:4000/expense`,obj,{headers:{"Authorization":token}})
     .then(res => {
         console.log("response is ",res.data.createdExpense.id);
         e.target.amount.value = "";
@@ -168,7 +168,7 @@ function deleteExpense(e) {
     console.log("this is delete expenses",e.target.getAttribute('data-value'));
     const id = e.target.getAttribute('data-value');
     const token = localStorage.getItem('token');
-    axios.delete(`http://localhost:4000/delete/${id}`,{headers:{"Authorization":token}})
+    axios.delete(`http://65.0.39.128:4000/delete/${id}`,{headers:{"Authorization":token}})
     .then(res =>{
         console.log(res);
         const list = document.getElementsByClassName('list');
@@ -184,7 +184,7 @@ function deleteExpense(e) {
 
  function buyPremium(e){
     const token = localStorage.getItem('token');
-   axios.get(`http://localhost:4000/purchase/premiummembership`,{headers:{"Authorization":token}})
+   axios.get(`http://65.0.39.128:4000/purchase/premiummembership`,{headers:{"Authorization":token}})
     .then(res => {
         console.log("this is after buypremium");
         var options = {
@@ -207,7 +207,7 @@ function deleteExpense(e) {
         e.preventDefault();
         rzp1.on('payment.failed',async function(response){
             console.log(response);
-            await axios.post(`http://localhost:4000/purchase/paymentfailed`,{
+            await axios.post(`http://65.0.39.128:4000/purchase/paymentfailed`,{
                 order_id:options.order_id,
                 payment_id:response.razorpay_payment_id,},
                 {headers: {"Authorization":token}})
@@ -220,7 +220,7 @@ function deleteExpense(e) {
     e.preventDefault();
     console.log("thisis show leader board");
     const token = localStorage.getItem('token');
-    axios.get(`http://localhost:4000/premium/leaderboard`,{headers:{"Authorization":token}})
+    axios.get(`http://65.0.39.128:4000/premium/leaderboard`,{headers:{"Authorization":token}})
    .then(res => {
     console.log(res.data.users);
     const leaderboardList = document.getElementsByClassName("leaderboardlist");
