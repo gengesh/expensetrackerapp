@@ -191,7 +191,7 @@ function deleteExpense(e) {
             "key":res.data.key_id,
             "order_id":res.data.order.id,
             "handler":async function (response) {
-                await axios.post(`${process.env.WEBSITE}/purchase/updatetransactionstatus`,{
+                await axios.post(`http://65.0.39.128:4000/purchase/updatetransactionstatus`,{
                     order_id:options.order_id,
                     payment_id:response.razorpay_payment_id,},
                     {headers: {"Authorization":token}})
